@@ -1,0 +1,2075 @@
+Microsoft Windows [Version 10.0.18363.1316]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\Timot>cd Documents/github
+
+C:\Users\Timot\Documents\GitHub>cd simple-sine-curve
+
+C:\Users\Timot\Documents\GitHub\simple-sine-curve>docker build -t ssc .
+[+] Building 352.2s (8/8) FINISHED
+ => [internal] load build definition from Dockerfile                    0.1s
+ => => transferring dockerfile: 155B                                    0.0s
+ => [internal] load .dockerignore                                       0.1s
+ => => transferring context: 2B                                         0.0s
+ => [internal] load metadata for docker.io/rayproject/ray-ml:latest    11.2s
+ => [1/4] FROM docker.io/rayproject/ray-ml@sha256:2238abe70083ee92ce  313.5s
+ => => resolve docker.io/rayproject/ray-ml@sha256:2238abe70083ee92ce83  0.0s
+ => => sha256:2238abe70083ee92ce83358ca624affa4d4fa849 3.26kB / 3.26kB  0.0s
+ => => sha256:14428a6d4bcdba49a64127900a0691fb00a3f329aced 847B / 847B  0.3s
+ => => sha256:2c2d948710f21ad82dce71743b1654b45acb5c059cf5 162B / 162B  0.2s
+ => => sha256:79ad6e1f7546d082b32ec40d116c95c0593b7f 11.86kB / 11.86kB  0.0s
+ => => sha256:da7391352a9bb76b292a568c066aa4c3cbae8d 28.56MB / 28.56MB  4.5s
+ => => sha256:0ab876e4a4b9e1c69469569811233537a1a1b2fa 1.76MB / 1.76MB  1.1s
+ => => sha256:d08903ca8b5b35205b79188e81b831d4c82 181.42MB / 181.42MB  42.4s
+ => => sha256:bf92e00a8a3af74c6268310ef3040a346c4bb3 48.12MB / 48.12MB  9.2s
+ => => sha256:dd478fb7c95724c26c5238ea0dd0496f1a7 186.24MB / 186.24MB  45.8s
+ => => extracting sha256:da7391352a9bb76b292a568c066aa4c3cbae8d494e6a3  2.7s
+ => => extracting sha256:14428a6d4bcdba49a64127900a0691fb00a3f329aced2  0.0s
+ => => extracting sha256:2c2d948710f21ad82dce71743b1654b45acb5c059cf5c  0.0s
+ => => extracting sha256:0ab876e4a4b9e1c69469569811233537a1a1b2fa1164e  0.5s
+ => => sha256:0cef5c9571864f24851978b4791d1c9de1fcf 50.46MB / 50.46MB  14.9s
+ => => sha256:8088807fe109c80828233beae9350c84919443ee02a 821B / 821B  15.3s
+ => => sha256:fe78e395028e71151b224414a1872594b5c47a965ca 164B / 164B  15.5s
+ => => sha256:87ec065e852915d57cf055c6d8f5c6af33a84fb6bfe 278B / 278B  15.7s
+ => => sha256:7b5da3898c2213743066390b5f476126158008a0f63 500B / 500B  16.0s
+ => => sha256:5a3187b79265aa8fdd1c8ad048b9303f946558 2.01GB / 2.01GB  177.8s
+ => => extracting sha256:d08903ca8b5b35205b79188e81b831d4c826740e5e0c  19.2s
+ => => extracting sha256:bf92e00a8a3af74c6268310ef3040a346c4bb32c0850d  1.0s
+ => => extracting sha256:dd478fb7c95724c26c5238ea0dd0496f1a70d4c40162  23.8s
+ => => extracting sha256:0cef5c9571864f24851978b4791d1c9de1fcf4e7d06eb  4.0s
+ => => extracting sha256:8088807fe109c80828233beae9350c84919443ee02aa0  0.0s
+ => => extracting sha256:fe78e395028e71151b224414a1872594b5c47a965ca28  0.0s
+ => => extracting sha256:87ec065e852915d57cf055c6d8f5c6af33a84fb6bfe3d  0.0s
+ => => extracting sha256:7b5da3898c2213743066390b5f476126158008a0f639e  0.0s
+ => => extracting sha256:5a3187b79265aa8fdd1c8ad048b9303f9465583aebf  133.1s
+ => [2/4] RUN pip install --upgrade pip                                 8.9s
+ => [3/4] RUN pip install tensortrade==1.0.1b0 symfit                  17.1s
+ => [4/4] WORKDIR /app                                                  0.1s
+ => exporting to image                                                  1.0s
+ => => exporting layers                                                 0.9s
+ => => writing image sha256:cf1f6fd44838141a11d041ef77e2abf2441255d1a0  0.0s
+ => => naming to docker.io/library/ssc                                  0.0s
+
+C:\Users\Timot\Documents\GitHub\simple-sine-curve>docker run -it -v C:\Users\Timot\Documents\GitHub\simple-sine-curve:/app --entrypoint /bin/bash ssc
+(base) ray@20e5c5069c73:/app$ python scripts/main.py
+WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2021-02-07 14:03:49,471 INFO services.py:1173 -- View the Ray dashboard at http://127.0.0.1:8265
+2021-02-07 14:03:49,475 WARNING services.py:1640 -- WARNING: The object store is using /tmp instead of /dev/shm because /dev/shm has only 67108864 bytes available. This may slow down performance! You may be able to free up space by deleting files in /dev/shm or terminating any running plasma_store_server processes. If you are inside a Docker container, you may need to pass an argument with the flag '--shm-size' to 'docker run'.
+== Status ==
+Memory usage on this node: 2.1/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+-------+
+| Trial name                 | status   | loc   |
+|----------------------------+----------+-------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  |       |
++----------------------------+----------+-------+
+
+
+(pid=119) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=119) Instructions for updating:
+(pid=119) non-resource variables are not supported in the long term
+(pid=119) 2021-02-07 14:04:01,673       INFO trainer.py:618 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+(pid=121) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=121) Instructions for updating:
+(pid=121) non-resource variables are not supported in the long term
+(pid=120) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=120) Instructions for updating:
+(pid=120) non-resource variables are not supported in the long term
+(pid=118) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=118) Instructions for updating:
+(pid=118) non-resource variables are not supported in the long term
+(pid=116) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=116) Instructions for updating:
+(pid=116) non-resource variables are not supported in the long term
+(pid=117) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=117) Instructions for updating:
+(pid=117) non-resource variables are not supported in the long term
+(pid=115) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=115) Instructions for updating:
+(pid=115) non-resource variables are not supported in the long term
+(pid=114) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=114) Instructions for updating:
+(pid=114) non-resource variables are not supported in the long term
+(pid=116) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=116)   return torch._C._cuda_getDeviceCount() > 0
+(pid=121) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=121)   return torch._C._cuda_getDeviceCount() > 0
+(pid=120) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=120)   return torch._C._cuda_getDeviceCount() > 0
+(pid=115) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=115)   return torch._C._cuda_getDeviceCount() > 0
+(pid=119) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=119)   return torch._C._cuda_getDeviceCount() > 0
+(pid=118) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=118)   return torch._C._cuda_getDeviceCount() > 0
+(pid=119) 2021-02-07 14:04:14,711       INFO trainable.py:102 -- Trainable.setup took 14.145 seconds. If your trainable is slow to initialize, consider setting reuse_actors=True to reduce actor creation overheads.
+(pid=119) 2021-02-07 14:04:14,711       WARNING util.py:43 -- Install gputil for GPU system monitoring.
+(pid=116) /home/ray/anaconda3/lib/python3.7/site-packages/ray/rllib/utils/torch_ops.py:65: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+(pid=116)   tensor = torch.from_numpy(np.asarray(item))
+(pid=115) /home/ray/anaconda3/lib/python3.7/site-packages/ray/rllib/utils/torch_ops.py:65: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+(pid=115)   tensor = torch.from_numpy(np.asarray(item))
+(pid=121) /home/ray/anaconda3/lib/python3.7/site-packages/ray/rllib/utils/torch_ops.py:65: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+(pid=121)   tensor = torch.from_numpy(np.asarray(item))
+(pid=120) /home/ray/anaconda3/lib/python3.7/site-packages/ray/rllib/utils/torch_ops.py:65: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+(pid=120)   tensor = torch.from_numpy(np.asarray(item))
+(pid=118) /home/ray/anaconda3/lib/python3.7/site-packages/ray/rllib/utils/torch_ops.py:65: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+(pid=118)   tensor = torch.from_numpy(np.asarray(item))
+(pid=117) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=117)   return torch._C._cuda_getDeviceCount() > 0
+(pid=117) /home/ray/anaconda3/lib/python3.7/site-packages/ray/rllib/utils/torch_ops.py:65: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+(pid=117)   tensor = torch.from_numpy(np.asarray(item))
+(pid=114) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=114)   return torch._C._cuda_getDeviceCount() > 0
+(pid=121) 2021-02-07 14:04:15,026       WARNING deprecation.py:30 -- DeprecationWarning: `env_index` has been deprecated. Use `episode.env_id` instead. This will raise an error in the future!
+(pid=114) /home/ray/anaconda3/lib/python3.7/site-packages/ray/rllib/utils/torch_ops.py:65: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+(pid=114)   tensor = torch.from_numpy(np.asarray(item))
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-04-26
+  done: false
+  episode_len_mean: 204.0625
+  episode_reward_max: 8.851400332332396
+  episode_reward_mean: -4.72110642446075
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 16
+  episodes_total: 16
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.2
+        cur_lr: 8.0e-06
+        entropy: 0.6283310326662931
+        entropy_coeff: 0.01
+        kl: 0.06893895182645682
+        policy_loss: -0.20844482489381777
+        total_loss: 0.2949689333186005
+        vf_explained_var: 0.002130997832864523
+        vf_loss: 0.9918185598922499
+    num_steps_sampled: 4200
+    num_steps_trained: 4200
+  iterations_since_restore: 1
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 37.705555555555556
+    ram_util_percent: 36.13333333333334
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13515006087584028
+    mean_env_wait_ms: 1.9102901121145874
+    mean_inference_ms: 2.8455301053115414
+    mean_raw_obs_processing_ms: 0.3450625698498997
+  time_since_restore: 12.243577003479004
+  time_this_iter_s: 12.243577003479004
+  time_total_s: 12.243577003479004
+  timers:
+    learn_throughput: 489.749
+    learn_time_ms: 8575.825
+    sample_throughput: 1149.364
+    sample_time_ms: 3654.193
+    update_time_ms: 4.357
+  timestamp: 1612735466
+  timesteps_since_restore: 0
+  timesteps_total: 4200
+  training_iteration: 1
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.4/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |   ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      1 |          12.2436 | 4200 | -4.72111 |               8.8514 |             -19.1629 |            204.062 |
++----------------------------+----------+----------------+--------+------------------+------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-04-38
+  done: false
+  episode_len_mean: 223.1904761904762
+  episode_reward_max: 120.19903210725703
+  episode_reward_mean: 2.729438281496157
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 5
+  episodes_total: 21
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.30000000000000004
+        cur_lr: 8.0e-06
+        entropy: 0.4083087399150386
+        entropy_coeff: 0.01
+        kl: 0.115097110470136
+        policy_loss: -0.2504979557160175
+        total_loss: 0.22265238777706117
+        vf_explained_var: 0.01817185804247856
+        vf_loss: 0.8854085803031921
+    num_steps_sampled: 8400
+    num_steps_trained: 8400
+  iterations_since_restore: 2
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 34.199999999999996
+    ram_util_percent: 36.364705882352936
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12957832098645378
+    mean_env_wait_ms: 1.8820023452611774
+    mean_inference_ms: 2.811923957676961
+    mean_raw_obs_processing_ms: 0.3411495558708993
+  time_since_restore: 23.976783990859985
+  time_this_iter_s: 11.733206987380981
+  time_total_s: 23.976783990859985
+  timers:
+    learn_throughput: 484.007
+    learn_time_ms: 8677.559
+    sample_throughput: 1278.009
+    sample_time_ms: 3286.363
+    update_time_ms: 15.631
+  timestamp: 1612735478
+  timesteps_since_restore: 0
+  timesteps_total: 8400
+  training_iteration: 2
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |   ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      2 |          23.9768 | 8400 |  2.72944 |              120.199 |             -19.1629 |             223.19 |
++----------------------------+----------+----------------+--------+------------------+------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-04-50
+  done: false
+  episode_len_mean: 380.1111111111111
+  episode_reward_max: 339.1635489840896
+  episode_reward_mean: 64.7681583369771
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 6
+  episodes_total: 27
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.45000000000000007
+        cur_lr: 8.0e-06
+        entropy: 0.26150508270119177
+        entropy_coeff: 0.01
+        kl: 0.03587859485185507
+        policy_loss: -0.12937410108067773
+        total_loss: 0.14731073311784051
+        vf_explained_var: 0.016320737078785896
+        vf_loss: 0.5263090323318135
+    num_steps_sampled: 12600
+    num_steps_trained: 12600
+  iterations_since_restore: 3
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 34.225
+    ram_util_percent: 36.4
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12581604991294806
+    mean_env_wait_ms: 1.8293661854042838
+    mean_inference_ms: 2.7695715104523173
+    mean_raw_obs_processing_ms: 0.3365917746928663
+  time_since_restore: 35.338782787323
+  time_this_iter_s: 11.361998796463013
+  time_total_s: 35.338782787323
+  timers:
+    learn_throughput: 484.683
+    learn_time_ms: 8665.463
+    sample_throughput: 1357.593
+    sample_time_ms: 3093.712
+    update_time_ms: 11.58
+  timestamp: 1612735490
+  timesteps_since_restore: 0
+  timesteps_total: 12600
+  training_iteration: 3
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      3 |          35.3388 | 12600 |  64.7682 |              339.164 |             -19.1629 |            380.111 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-05-01
+  done: false
+  episode_len_mean: 422.86206896551727
+  episode_reward_max: 486.97194089866133
+  episode_reward_mean: 93.30063101164174
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 2
+  episodes_total: 29
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.675
+        cur_lr: 8.0e-06
+        entropy: 0.18071823770349676
+        entropy_coeff: 0.01
+        kl: 0.011552002224506754
+        policy_loss: -0.08523754515882695
+        total_loss: 0.08054122735153545
+        vf_explained_var: 0.02047783136367798
+        vf_loss: 0.31957669827071106
+    num_steps_sampled: 16800
+    num_steps_trained: 16800
+  iterations_since_restore: 4
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 32.94117647058823
+    ram_util_percent: 36.476470588235294
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12461515674826924
+    mean_env_wait_ms: 1.807355058537998
+    mean_inference_ms: 2.758404049814529
+    mean_raw_obs_processing_ms: 0.3355452071308297
+  time_since_restore: 47.00889825820923
+  time_this_iter_s: 11.67011547088623
+  time_total_s: 47.00889825820923
+  timers:
+    learn_throughput: 479.27
+    learn_time_ms: 8763.336
+    sample_throughput: 1414.283
+    sample_time_ms: 2969.702
+    update_time_ms: 9.99
+  timestamp: 1612735501
+  timesteps_since_restore: 0
+  timesteps_total: 16800
+  training_iteration: 4
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      4 |          47.0089 | 16800 |  93.3006 |              486.972 |             -19.1629 |            422.862 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-05-14
+  done: false
+  episode_len_mean: 507.7352941176471
+  episode_reward_max: 540.8328546463131
+  episode_reward_mean: 156.24672362259497
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 5
+  episodes_total: 34
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.675
+        cur_lr: 8.0e-06
+        entropy: 0.11989946573069601
+        entropy_coeff: 0.01
+        kl: 0.005935784415200804
+        policy_loss: -0.05990370780681119
+        total_loss: 0.03975967537950386
+        vf_explained_var: 0.04292424023151398
+        vf_loss: 0.1937114458644029
+    num_steps_sampled: 21000
+    num_steps_trained: 21000
+  iterations_since_restore: 5
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 35.63333333333334
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12383750259833617
+    mean_env_wait_ms: 1.7626279647678045
+    mean_inference_ms: 2.7651195001767332
+    mean_raw_obs_processing_ms: 0.33639140928565286
+  time_since_restore: 59.696319341659546
+  time_this_iter_s: 12.687421083450317
+  time_total_s: 59.696319341659546
+  timers:
+    learn_throughput: 475.356
+    learn_time_ms: 8835.477
+    sample_throughput: 1361.658
+    sample_time_ms: 3084.475
+    update_time_ms: 8.779
+  timestamp: 1612735514
+  timesteps_since_restore: 0
+  timesteps_total: 21000
+  training_iteration: 5
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      5 |          59.6963 | 21000 |  156.247 |              540.833 |             -19.1629 |            507.735 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-05-27
+  done: false
+  episode_len_mean: 559.5526315789474
+  episode_reward_max: 567.2171442229187
+  episode_reward_mean: 198.69868999401703
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 4
+  episodes_total: 38
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.675
+        cur_lr: 8.0e-06
+        entropy: 0.08598167392792123
+        entropy_coeff: 0.01
+        kl: 0.004894730811374206
+        policy_loss: -0.05104318182125236
+        total_loss: 0.028757766905156048
+        vf_explained_var: 0.03387553244829178
+        vf_loss: 0.1547136391428384
+    num_steps_sampled: 25200
+    num_steps_trained: 25200
+  iterations_since_restore: 6
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 33.83888888888888
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12354861646533208
+    mean_env_wait_ms: 1.7278157921033732
+    mean_inference_ms: 2.7725068979856844
+    mean_raw_obs_processing_ms: 0.3372028710190045
+  time_since_restore: 72.20045948028564
+  time_this_iter_s: 12.504140138626099
+  time_total_s: 72.20045948028564
+  timers:
+    learn_throughput: 468.535
+    learn_time_ms: 8964.116
+    sample_throughput: 1376.672
+    sample_time_ms: 3050.836
+    update_time_ms: 8.205
+  timestamp: 1612735527
+  timesteps_since_restore: 0
+  timesteps_total: 25200
+  training_iteration: 6
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      6 |          72.2005 | 25200 |  198.699 |              567.217 |             -19.1629 |            559.553 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-05-40
+  done: false
+  episode_len_mean: 601.5
+  episode_reward_max: 580.5127120726397
+  episode_reward_mean: 234.50913476252134
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 4
+  episodes_total: 42
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.3375
+        cur_lr: 8.0e-06
+        entropy: 0.05388218525684241
+        entropy_coeff: 0.01
+        kl: 0.003892842475607088
+        policy_loss: -0.03322753169094071
+        total_loss: 0.018478689771710022
+        vf_explained_var: -0.009919433854520321
+        vf_loss: 0.10186242267037883
+    num_steps_sampled: 29400
+    num_steps_trained: 29400
+  iterations_since_restore: 7
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 34.32105263157895
+    ram_util_percent: 36.47894736842105
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12322497884910044
+    mean_env_wait_ms: 1.6987004818756841
+    mean_inference_ms: 2.7869504183628124
+    mean_raw_obs_processing_ms: 0.33787212317029464
+  time_since_restore: 85.90390419960022
+  time_this_iter_s: 13.703444719314575
+  time_total_s: 85.90390419960022
+  timers:
+    learn_throughput: 457.717
+    learn_time_ms: 9175.973
+    sample_throughput: 1364.398
+    sample_time_ms: 3078.28
+    update_time_ms: 7.648
+  timestamp: 1612735540
+  timesteps_since_restore: 0
+  timesteps_total: 29400
+  training_iteration: 7
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      7 |          85.9039 | 29400 |  234.509 |              580.513 |             -19.1629 |              601.5 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-05-54
+  done: false
+  episode_len_mean: 651.3125
+  episode_reward_max: 591.601592775731
+  episode_reward_mean: 278.51694042958155
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 6
+  episodes_total: 48
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.16875
+        cur_lr: 8.0e-06
+        entropy: 0.03641273668318084
+        entropy_coeff: 0.01
+        kl: 0.0034787852041931315
+        policy_loss: -0.029437212329922302
+        total_loss: 0.013318343116252712
+        vf_explained_var: 0.026005875319242477
+        vf_loss: 0.08506527404780641
+    num_steps_sampled: 33600
+    num_steps_trained: 33600
+  iterations_since_restore: 8
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 34.114999999999995
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12359013842788684
+    mean_env_wait_ms: 1.6595116916799026
+    mean_inference_ms: 2.8130453748999322
+    mean_raw_obs_processing_ms: 0.3405596833975437
+  time_since_restore: 99.51510167121887
+  time_this_iter_s: 13.611197471618652
+  time_total_s: 99.51510167121887
+  timers:
+    learn_throughput: 451.315
+    learn_time_ms: 9306.136
+    sample_throughput: 1347.733
+    sample_time_ms: 3116.344
+    update_time_ms: 7.069
+  timestamp: 1612735554
+  timesteps_since_restore: 0
+  timesteps_total: 33600
+  training_iteration: 8
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      8 |          99.5151 | 33600 |  278.517 |              591.602 |             -19.1629 |            651.312 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-06-07
+  done: false
+  episode_len_mean: 665.26
+  episode_reward_max: 593.4687504851399
+  episode_reward_mean: 291.11271693027726
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 2
+  episodes_total: 50
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.084375
+        cur_lr: 8.0e-06
+        entropy: 0.023717112387671616
+        entropy_coeff: 0.01
+        kl: 0.002342165035026317
+        policy_loss: -0.021833611144260925
+        total_loss: 0.005089411399129665
+        vf_explained_var: -0.06728209555149078
+        vf_loss: 0.05392515022928516
+    num_steps_sampled: 37800
+    num_steps_trained: 37800
+  iterations_since_restore: 9
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 38.09444444444445
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12384727420433064
+    mean_env_wait_ms: 1.6476226064780937
+    mean_inference_ms: 2.825394246716637
+    mean_raw_obs_processing_ms: 0.341553139830469
+  time_since_restore: 112.28206658363342
+  time_this_iter_s: 12.76696491241455
+  time_total_s: 112.28206658363342
+  timers:
+    learn_throughput: 453.72
+    learn_time_ms: 9256.814
+    sample_throughput: 1311.424
+    sample_time_ms: 3202.625
+    update_time_ms: 6.673
+  timestamp: 1612735567
+  timesteps_since_restore: 0
+  timesteps_total: 37800
+  training_iteration: 9
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |      9 |          112.282 | 37800 |  291.113 |              593.469 |             -19.1629 |             665.26 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-06-19
+  done: false
+  episode_len_mean: 695.6909090909091
+  episode_reward_max: 596.1450369300026
+  episode_reward_mean: 318.5999114111198
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 5
+  episodes_total: 55
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.0421875
+        cur_lr: 8.0e-06
+        entropy: 0.015682467076024324
+        entropy_coeff: 0.01
+        kl: 0.0010393453271579788
+        policy_loss: -0.012137243241974802
+        total_loss: 0.011368078306655992
+        vf_explained_var: -0.06245032325387001
+        vf_loss: 0.04723659290395903
+    num_steps_sampled: 42000
+    num_steps_trained: 42000
+  iterations_since_restore: 10
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 31.438888888888886
+    ram_util_percent: 36.47777777777778
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12432677196440757
+    mean_env_wait_ms: 1.6202231697517395
+    mean_inference_ms: 2.848371643573519
+    mean_raw_obs_processing_ms: 0.3438364733766924
+  time_since_restore: 124.73283648490906
+  time_this_iter_s: 12.450769901275635
+  time_total_s: 124.73283648490906
+  timers:
+    learn_throughput: 450.77
+    learn_time_ms: 9317.398
+    sample_throughput: 1339.001
+    sample_time_ms: 3136.667
+    update_time_ms: 7.042
+  timestamp: 1612735579
+  timesteps_since_restore: 0
+  timesteps_total: 42000
+  training_iteration: 10
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     10 |          124.733 | 42000 |    318.6 |              596.145 |             -19.1629 |            695.691 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-06-39
+  done: false
+  episode_len_mean: 716.3220338983051
+  episode_reward_max: 597.4440160974923
+  episode_reward_mean: 337.487581108471
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 4
+  episodes_total: 59
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.02109375
+        cur_lr: 8.0e-06
+        entropy: 0.01663945539798023
+        entropy_coeff: 0.01
+        kl: 0.0016219990048381133
+        policy_loss: -0.025172413524353142
+        total_loss: -0.002800606473377257
+        vf_explained_var: -0.21876423060894012
+        vf_loss: 0.0450079756379692
+    num_steps_sampled: 46200
+    num_steps_trained: 46200
+  iterations_since_restore: 11
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 40.63333333333333
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1256847318113558
+    mean_env_wait_ms: 1.607259661080966
+    mean_inference_ms: 2.8883989393629173
+    mean_raw_obs_processing_ms: 0.34824031594636123
+  time_since_restore: 143.81526160240173
+  time_this_iter_s: 19.082425117492676
+  time_total_s: 143.81526160240173
+  timers:
+    learn_throughput: 435.688
+    learn_time_ms: 9639.922
+    sample_throughput: 1200.666
+    sample_time_ms: 3498.059
+    update_time_ms: 6.972
+  timestamp: 1612735599
+  timesteps_since_restore: 0
+  timesteps_total: 46200
+  training_iteration: 11
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     11 |          143.815 | 46200 |  337.488 |              597.444 |             -19.1629 |            716.322 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-06-50
+  done: false
+  episode_len_mean: 734.3333333333334
+  episode_reward_max: 597.5001513503166
+  episode_reward_mean: 353.9656697584447
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 4
+  episodes_total: 63
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.010546875
+        cur_lr: 8.0e-06
+        entropy: 0.014701820797089375
+        entropy_coeff: 0.01
+        kl: 0.0008455413952822599
+        policy_loss: -0.015253768175501715
+        total_loss: 0.002772742487264402
+        vf_explained_var: -0.034597642719745636
+        vf_loss: 0.03632921947758983
+    num_steps_sampled: 50400
+    num_steps_trained: 50400
+  iterations_since_restore: 12
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 32.688235294117646
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1263994652274379
+    mean_env_wait_ms: 1.5925150591991577
+    mean_inference_ms: 2.916451719899162
+    mean_raw_obs_processing_ms: 0.3504963521482133
+  time_since_restore: 155.1623854637146
+  time_this_iter_s: 11.347123861312866
+  time_total_s: 155.1623854637146
+  timers:
+    learn_throughput: 435.342
+    learn_time_ms: 9647.582
+    sample_throughput: 1216.09
+    sample_time_ms: 3453.692
+    update_time_ms: 4.637
+  timestamp: 1612735610
+  timesteps_since_restore: 0
+  timesteps_total: 50400
+  training_iteration: 12
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     12 |          155.162 | 50400 |  353.966 |                597.5 |             -19.1629 |            734.333 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-07-02
+  done: false
+  episode_len_mean: 757.4347826086956
+  episode_reward_max: 597.7362943049673
+  episode_reward_mean: 375.11461431400016
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 6
+  episodes_total: 69
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.0052734375
+        cur_lr: 8.0e-06
+        entropy: 0.015742428600788116
+        entropy_coeff: 0.01
+        kl: 0.002391428088878566
+        policy_loss: -0.015627969183366407
+        total_loss: -0.0011695193578348014
+        vf_explained_var: -0.2470788061618805
+        vf_loss: 0.029206535313278437
+    num_steps_sampled: 54600
+    num_steps_trained: 54600
+  iterations_since_restore: 13
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 30.7
+    ram_util_percent: 36.48823529411764
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12746506490020146
+    mean_env_wait_ms: 1.5704184669808976
+    mean_inference_ms: 2.949942591332125
+    mean_raw_obs_processing_ms: 0.3539110453450877
+  time_since_restore: 167.44402527809143
+  time_this_iter_s: 12.281639814376831
+  time_total_s: 167.44402527809143
+  timers:
+    learn_throughput: 429.93
+    learn_time_ms: 9769.026
+    sample_throughput: 1226.54
+    sample_time_ms: 3424.268
+    update_time_ms: 4.666
+  timestamp: 1612735622
+  timesteps_since_restore: 0
+  timesteps_total: 54600
+  training_iteration: 13
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     13 |          167.444 | 54600 |  375.115 |              597.736 |             -19.1629 |            757.435 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-07-22
+  done: false
+  episode_len_mean: 764.2676056338029
+  episode_reward_max: 597.925242474686
+  episode_reward_mean: 381.3865614441043
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 2
+  episodes_total: 71
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.00263671875
+        cur_lr: 8.0e-06
+        entropy: 0.013075269988004231
+        entropy_coeff: 0.01
+        kl: 0.0003855233336446073
+        policy_loss: -0.012343349118688793
+        total_loss: 0.0016507347622378306
+        vf_explained_var: -0.2402445524930954
+        vf_loss: 0.02824764171347135
+    num_steps_sampled: 58800
+    num_steps_trained: 58800
+  iterations_since_restore: 14
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 31.150000000000002
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12775933819713461
+    mean_env_wait_ms: 1.5635768261821217
+    mean_inference_ms: 2.9614540192108194
+    mean_raw_obs_processing_ms: 0.3550029138517922
+  time_since_restore: 186.95257592201233
+  time_this_iter_s: 19.5085506439209
+  time_total_s: 186.95257592201233
+  timers:
+    learn_throughput: 402.973
+    learn_time_ms: 10422.535
+    sample_throughput: 1181.721
+    sample_time_ms: 3554.138
+    update_time_ms: 5.038
+  timestamp: 1612735642
+  timesteps_since_restore: 0
+  timesteps_total: 58800
+  training_iteration: 14
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     14 |          186.953 | 58800 |  381.387 |              597.925 |             -19.1629 |            764.268 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-07-40
+  done: false
+  episode_len_mean: 779.7763157894736
+  episode_reward_max: 597.925242474686
+  episode_reward_mean: 395.6157436433206
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 5
+  episodes_total: 76
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.001318359375
+        cur_lr: 8.0e-06
+        entropy: 0.010639714996090554
+        entropy_coeff: 0.01
+        kl: 0.0011678646595266234
+        policy_loss: -0.015597701778240276
+        total_loss: -0.0038072834299369292
+        vf_explained_var: -0.3155900537967682
+        vf_loss: 0.023790546759934812
+    num_steps_sampled: 63000
+    num_steps_trained: 63000
+  iterations_since_restore: 15
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 33.87307692307692
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1288652171668498
+    mean_env_wait_ms: 1.5503573905914363
+    mean_inference_ms: 2.993935135427537
+    mean_raw_obs_processing_ms: 0.35827390381992147
+  time_since_restore: 204.85051107406616
+  time_this_iter_s: 17.897935152053833
+  time_total_s: 204.85051107406616
+  timers:
+    learn_throughput: 388.043
+    learn_time_ms: 10823.53
+    sample_throughput: 1142.929
+    sample_time_ms: 3674.768
+    update_time_ms: 5.041
+  timestamp: 1612735660
+  timesteps_since_restore: 0
+  timesteps_total: 63000
+  training_iteration: 15
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     15 |          204.851 | 63000 |  395.616 |              597.925 |             -19.1629 |            779.776 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-07-55
+  done: false
+  episode_len_mean: 790.7875
+  episode_reward_max: 597.9518631501855
+  episode_reward_mean: 405.7274163133802
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 4
+  episodes_total: 80
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.0006591796875
+        cur_lr: 8.0e-06
+        entropy: 0.011257197365700973
+        entropy_coeff: 0.01
+        kl: 0.00022755443349138437
+        policy_loss: -0.011317289293263897
+        total_loss: 0.00035515009905352736
+        vf_explained_var: -0.267986923456192
+        vf_loss: 0.023569725291577703
+    num_steps_sampled: 67200
+    num_steps_trained: 67200
+  iterations_since_restore: 16
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 33.63333333333333
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.12972688981148411
+    mean_env_wait_ms: 1.5405081304396313
+    mean_inference_ms: 3.018183568631211
+    mean_raw_obs_processing_ms: 0.361034537211434
+  time_since_restore: 219.63593935966492
+  time_this_iter_s: 14.785428285598755
+  time_total_s: 219.63593935966492
+  timers:
+    learn_throughput: 381.788
+    learn_time_ms: 11000.865
+    sample_throughput: 1127.278
+    sample_time_ms: 3725.788
+    update_time_ms: 4.854
+  timestamp: 1612735675
+  timesteps_since_restore: 0
+  timesteps_total: 67200
+  training_iteration: 16
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     16 |          219.636 | 67200 |  405.727 |              597.952 |             -19.1629 |            790.788 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-08-07
+  done: false
+  episode_len_mean: 800.75
+  episode_reward_max: 597.9577364183108
+  episode_reward_mean: 414.8734030726009
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 4
+  episodes_total: 84
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.00032958984375
+        cur_lr: 8.0e-06
+        entropy: 0.01017860368345723
+        entropy_coeff: 0.01
+        kl: 0.0004961978910146034
+        policy_loss: -0.011217115009485773
+        total_loss: -0.00028698425740003586
+        vf_explained_var: -0.2547130286693573
+        vf_loss: 0.02206349769381411
+    num_steps_sampled: 71400
+    num_steps_trained: 71400
+  iterations_since_restore: 17
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 35.094117647058816
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13026663871355249
+    mean_env_wait_ms: 1.5304279284204383
+    mean_inference_ms: 3.03861833921618
+    mean_raw_obs_processing_ms: 0.3626552303044358
+  time_since_restore: 231.96300554275513
+  time_this_iter_s: 12.32706618309021
+  time_total_s: 231.96300554275513
+  timers:
+    learn_throughput: 386.346
+    learn_time_ms: 10871.098
+    sample_throughput: 1129.62
+    sample_time_ms: 3718.064
+    update_time_ms: 4.815
+  timestamp: 1612735687
+  timesteps_since_restore: 0
+  timesteps_total: 71400
+  training_iteration: 17
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     17 |          231.963 | 71400 |  414.873 |              597.958 |             -19.1629 |             800.75 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-08-20
+  done: false
+  episode_len_mean: 814.0333333333333
+  episode_reward_max: 598.0434128159379
+  episode_reward_mean: 427.07584471708697
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 6
+  episodes_total: 90
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.000164794921875
+        cur_lr: 8.0e-06
+        entropy: 0.009081416878898657
+        entropy_coeff: 0.01
+        kl: 0.00013266292431911677
+        policy_loss: -0.007438821322990187
+        total_loss: 0.0016854960810054433
+        vf_explained_var: -0.16985845565795898
+        vf_loss: 0.01843021784125912
+    num_steps_sampled: 75600
+    num_steps_trained: 75600
+  iterations_since_restore: 18
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 31.57368421052632
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13115185420186695
+    mean_env_wait_ms: 1.5159234353910913
+    mean_inference_ms: 3.064302828447344
+    mean_raw_obs_processing_ms: 0.3653462552903473
+  time_since_restore: 244.90599966049194
+  time_this_iter_s: 12.942994117736816
+  time_total_s: 244.90599966049194
+  timers:
+    learn_throughput: 386.233
+    learn_time_ms: 10874.264
+    sample_throughput: 1151.48
+    sample_time_ms: 3647.479
+    update_time_ms: 5.005
+  timestamp: 1612735700
+  timesteps_since_restore: 0
+  timesteps_total: 75600
+  training_iteration: 18
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     18 |          244.906 | 75600 |  427.076 |              598.043 |             -19.1629 |            814.033 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-08-33
+  done: false
+  episode_len_mean: 818.0760869565217
+  episode_reward_max: 598.0640979211421
+  episode_reward_mean: 430.7921135510803
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 2
+  episodes_total: 92
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 8.23974609375e-05
+        cur_lr: 8.0e-06
+        entropy: 0.008474418001820926
+        entropy_coeff: 0.01
+        kl: 0.00011345153402406581
+        policy_loss: -0.005329379811882973
+        total_loss: 0.002795141585396998
+        vf_explained_var: -0.49021777510643005
+        vf_loss: 0.016418514134729223
+    num_steps_sampled: 79800
+    num_steps_trained: 79800
+  iterations_since_restore: 19
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 33.82105263157895
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13136190777604032
+    mean_env_wait_ms: 1.5110452314255252
+    mean_inference_ms: 3.071878495137224
+    mean_raw_obs_processing_ms: 0.36611942427794775
+  time_since_restore: 257.9952838420868
+  time_this_iter_s: 13.089284181594849
+  time_total_s: 257.9952838420868
+  timers:
+    learn_throughput: 382.711
+    learn_time_ms: 10974.346
+    sample_throughput: 1173.422
+    sample_time_ms: 3579.274
+    update_time_ms: 5.162
+  timestamp: 1612735713
+  timesteps_since_restore: 0
+  timesteps_total: 79800
+  training_iteration: 19
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     19 |          257.995 | 79800 |  430.792 |              598.064 |             -19.1629 |            818.076 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-08-48
+  done: false
+  episode_len_mean: 827.4536082474227
+  episode_reward_max: 598.0640979211421
+  episode_reward_mean: 439.4081087530154
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 5
+  episodes_total: 97
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 4.119873046875e-05
+        cur_lr: 8.0e-06
+        entropy: 0.006683602373854999
+        entropy_coeff: 0.01
+        kl: 0.00022351024384688122
+        policy_loss: -0.008478103431336807
+        total_loss: -0.00028928803900877636
+        vf_explained_var: -0.3702102303504944
+        vf_loss: 0.016511282068677247
+    num_steps_sampled: 84000
+    num_steps_trained: 84000
+  iterations_since_restore: 20
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 34.44285714285714
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1320155846808769
+    mean_env_wait_ms: 1.500437125181289
+    mean_inference_ms: 3.091756223712238
+    mean_raw_obs_processing_ms: 0.36807920259924554
+  time_since_restore: 272.63922786712646
+  time_this_iter_s: 14.643944025039673
+  time_total_s: 272.63922786712646
+  timers:
+    learn_throughput: 379.481
+    learn_time_ms: 11067.733
+    sample_throughput: 1132.683
+    sample_time_ms: 3708.012
+    update_time_ms: 4.486
+  timestamp: 1612735728
+  timesteps_since_restore: 0
+  timesteps_total: 84000
+  training_iteration: 20
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     20 |          272.639 | 84000 |  439.408 |              598.064 |             -19.1629 |            827.454 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-09-00
+  done: false
+  episode_len_mean: 840.61
+  episode_reward_max: 598.0670516804923
+  episode_reward_mean: 450.213052175048
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 4
+  episodes_total: 101
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 2.0599365234375e-05
+        cur_lr: 8.0e-06
+        entropy: 0.007403358371420561
+        entropy_coeff: 0.01
+        kl: 7.695944942298638e-05
+        policy_loss: -0.0012820645616474476
+        total_loss: 0.005231374112719839
+        vf_explained_var: -0.44507309794425964
+        vf_loss: 0.013174935885190003
+    num_steps_sampled: 88200
+    num_steps_trained: 88200
+  iterations_since_restore: 21
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 33.5375
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13251505839079586
+    mean_env_wait_ms: 1.489719820236833
+    mean_inference_ms: 3.1058745152486176
+    mean_raw_obs_processing_ms: 0.3700016623329338
+  time_since_restore: 284.19790482521057
+  time_this_iter_s: 11.558676958084106
+  time_total_s: 284.19790482521057
+  timers:
+    learn_throughput: 389.948
+    learn_time_ms: 10770.671
+    sample_throughput: 1291.215
+    sample_time_ms: 3252.75
+    update_time_ms: 4.44
+  timestamp: 1612735740
+  timesteps_since_restore: 0
+  timesteps_total: 88200
+  training_iteration: 21
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     21 |          284.198 | 88200 |  450.213 |              598.067 |             -19.1629 |             840.61 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-09-11
+  done: false
+  episode_len_mean: 872.34
+  episode_reward_max: 598.0670516804923
+  episode_reward_mean: 474.20974216998616
+  episode_reward_min: -19.162879244677043
+  episodes_this_iter: 4
+  episodes_total: 105
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 1.02996826171875e-05
+        cur_lr: 8.0e-06
+        entropy: 0.006793533335660344
+        entropy_coeff: 0.01
+        kl: 0.0001445066843781674
+        policy_loss: -0.004808458344389995
+        total_loss: 0.002585086886855689
+        vf_explained_var: -0.4021579921245575
+        vf_loss: 0.014922961755832093
+    num_steps_sampled: 92400
+    num_steps_trained: 92400
+  iterations_since_restore: 22
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 31.41176470588235
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1322969952834978
+    mean_env_wait_ms: 1.4617905931356068
+    mean_inference_ms: 3.1279760300431416
+    mean_raw_obs_processing_ms: 0.37216563293088806
+  time_since_restore: 295.9092535972595
+  time_this_iter_s: 11.71134877204895
+  time_total_s: 295.9092535972595
+  timers:
+    learn_throughput: 388.416
+    learn_time_ms: 10813.141
+    sample_throughput: 1293.444
+    sample_time_ms: 3247.144
+    update_time_ms: 4.447
+  timestamp: 1612735751
+  timesteps_since_restore: 0
+  timesteps_total: 92400
+  training_iteration: 22
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     22 |          295.909 | 92400 |   474.21 |              598.067 |             -19.1629 |             872.34 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-09-23
+  done: false
+  episode_len_mean: 920.32
+  episode_reward_max: 598.0906907487858
+  episode_reward_mean: 510.5643974829086
+  episode_reward_min: -17.560937170598763
+  episodes_this_iter: 6
+  episodes_total: 111
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 5.14984130859375e-06
+        cur_lr: 8.0e-06
+        entropy: 0.006813586117487196
+        entropy_coeff: 0.01
+        kl: 0.00020642707485504533
+        policy_loss: -0.0009748028083281083
+        total_loss: 0.001798187072078387
+        vf_explained_var: -0.616239607334137
+        vf_loss: 0.0056822581203904874
+    num_steps_sampled: 96600
+    num_steps_trained: 96600
+  iterations_since_restore: 23
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 32.699999999999996
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13197241148000466
+    mean_env_wait_ms: 1.4172858178935013
+    mean_inference_ms: 3.1634525554561956
+    mean_raw_obs_processing_ms: 0.3750328354550092
+  time_since_restore: 307.5560336112976
+  time_this_iter_s: 11.646780014038086
+  time_total_s: 307.5560336112976
+  timers:
+    learn_throughput: 391.216
+    learn_time_ms: 10735.766
+    sample_throughput: 1288.136
+    sample_time_ms: 3260.524
+    update_time_ms: 4.923
+  timestamp: 1612735763
+  timesteps_since_restore: 0
+  timesteps_total: 96600
+  training_iteration: 23
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |    ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     23 |          307.556 | 96600 |  510.564 |              598.091 |             -17.5609 |             920.32 |
++----------------------------+----------+----------------+--------+------------------+-------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-09-35
+  done: false
+  episode_len_mean: 936.2
+  episode_reward_max: 598.0906907487858
+  episode_reward_mean: 522.647659025
+  episode_reward_min: -15.248767934209326
+  episodes_this_iter: 2
+  episodes_total: 113
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 2.574920654296875e-06
+        cur_lr: 8.0e-06
+        entropy: 0.006217431909080364
+        entropy_coeff: 0.01
+        kl: 8.069775495386872e-05
+        policy_loss: -0.005835506274844661
+        total_loss: 0.001874968973976193
+        vf_explained_var: -0.4704159200191498
+        vf_loss: 0.01554530529855666
+    num_steps_sampled: 100800
+    num_steps_trained: 100800
+  iterations_since_restore: 24
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 33.588235294117645
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13243061700577777
+    mean_env_wait_ms: 1.408339200492252
+    mean_inference_ms: 3.169370421890568
+    mean_raw_obs_processing_ms: 0.37595009002422847
+  time_since_restore: 319.78283286094666
+  time_this_iter_s: 12.226799249649048
+  time_total_s: 319.78283286094666
+  timers:
+    learn_throughput: 414.662
+    learn_time_ms: 10128.726
+    sample_throughput: 1337.729
+    sample_time_ms: 3139.65
+    update_time_ms: 4.519
+  timestamp: 1612735775
+  timesteps_since_restore: 0
+  timesteps_total: 100800
+  training_iteration: 24
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |     ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     24 |          319.783 | 100800 |  522.648 |              598.091 |             -15.2488 |              936.2 |
++----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-09-48
+  done: false
+  episode_len_mean: 975.89
+  episode_reward_max: 598.0906907487861
+  episode_reward_mean: 552.6686931213196
+  episode_reward_min: 6.270280920066199
+  episodes_this_iter: 5
+  episodes_total: 118
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 1.2874603271484376e-06
+        cur_lr: 8.0e-06
+        entropy: 0.005111166325646495
+        entropy_coeff: 0.01
+        kl: 0.00012121218697386081
+        policy_loss: -0.0020127584593314114
+        total_loss: 0.0021238112822175026
+        vf_explained_var: -0.5262718200683594
+        vf_loss: 0.008375358858646712
+    num_steps_sampled: 105000
+    num_steps_trained: 105000
+  iterations_since_restore: 25
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 34.644444444444446
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1335835782084974
+    mean_env_wait_ms: 1.3786563238196505
+    mean_inference_ms: 3.1970968219841893
+    mean_raw_obs_processing_ms: 0.3784282677212918
+  time_since_restore: 332.5342011451721
+  time_this_iter_s: 12.751368284225464
+  time_total_s: 332.5342011451721
+  timers:
+    learn_throughput: 429.951
+    learn_time_ms: 9768.561
+    sample_throughput: 1406.92
+    sample_time_ms: 2985.245
+    update_time_ms: 4.449
+  timestamp: 1612735788
+  timesteps_since_restore: 0
+  timesteps_total: 105000
+  training_iteration: 25
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |     ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     25 |          332.534 | 105000 |  552.669 |              598.091 |              6.27028 |             975.89 |
++----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-10-00
+  done: false
+  episode_len_mean: 995.76
+  episode_reward_max: 598.1054652210419
+  episode_reward_mean: 571.7690382356963
+  episode_reward_min: 114.85641481743633
+  episodes_this_iter: 4
+  episodes_total: 122
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 6.437301635742188e-07
+        cur_lr: 8.0e-06
+        entropy: 0.005785736135680274
+        entropy_coeff: 0.01
+        kl: 0.0002756603715791891
+        policy_loss: -0.008464288495650346
+        total_loss: -0.004211871383824583
+        vf_explained_var: -0.6803682446479797
+        vf_loss: 0.008620550069749836
+    num_steps_sampled: 109200
+    num_steps_trained: 109200
+  iterations_since_restore: 26
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 34.48823529411765
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13472490339145696
+    mean_env_wait_ms: 1.357624319412055
+    mean_inference_ms: 3.2237378811529154
+    mean_raw_obs_processing_ms: 0.3810911461728277
+  time_since_restore: 343.98930978775024
+  time_this_iter_s: 11.455108642578125
+  time_total_s: 343.98930978775024
+  timers:
+    learn_throughput: 443.133
+    learn_time_ms: 9477.96
+    sample_throughput: 1427.311
+    sample_time_ms: 2942.595
+    update_time_ms: 4.449
+  timestamp: 1612735800
+  timesteps_since_restore: 0
+  timesteps_total: 109200
+  training_iteration: 26
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |     ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     26 |          343.989 | 109200 |  571.769 |              598.105 |              114.856 |             995.76 |
++----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+
+
+Result for PPO_TradingEnv_5c5ee_00000:
+  custom_metrics: {}
+  date: 2021-02-07_14-10-11
+  done: true
+  episode_len_mean: 1000.0
+  episode_reward_max: 598.1054652210419
+  episode_reward_mean: 585.3327811502533
+  episode_reward_min: 316.30550538035817
+  episodes_this_iter: 4
+  episodes_total: 126
+  experiment_id: 2c761400ec3346c5bbdea0316a4cb5ad
+  hostname: 20e5c5069c73
+  info:
+    learner:
+      default_policy:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 3.218650817871094e-07
+        cur_lr: 8.0e-06
+        entropy: 0.005495893501740118
+        entropy_coeff: 0.01
+        kl: 0.00020170341282678373
+        policy_loss: -0.006017446066393997
+        total_loss: -0.0003886043348095634
+        vf_explained_var: -0.35860586166381836
+        vf_loss: 0.011367604298301916
+    num_steps_sampled: 113400
+    num_steps_trained: 113400
+  iterations_since_restore: 27
+  node_ip: 172.17.0.3
+  num_healthy_workers: 7
+  off_policy_estimator: {}
+  perf:
+    cpu_util_percent: 30.947058823529407
+    ram_util_percent: 36.5
+  pid: 119
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1356307703011943
+    mean_env_wait_ms: 1.3408721952696114
+    mean_inference_ms: 3.2513116026991775
+    mean_raw_obs_processing_ms: 0.3836190248775037
+  time_since_restore: 355.72415471076965
+  time_this_iter_s: 11.73484492301941
+  time_total_s: 355.72415471076965
+  timers:
+    learn_throughput: 442.428
+    learn_time_ms: 9493.071
+    sample_throughput: 1464.27
+    sample_time_ms: 2868.323
+    update_time_ms: 4.43
+  timestamp: 1612735811
+  timesteps_since_restore: 0
+  timesteps_total: 113400
+  training_iteration: 27
+  trial_id: 5c5ee_00000
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 8/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 RUNNING)
++----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status   | loc            |   iter |   total time (s) |     ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | RUNNING  | 172.17.0.3:119 |     27 |          355.724 | 113400 |  585.333 |              598.105 |              316.306 |               1000 |
++----------------------------+----------+----------------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+
+
+== Status ==
+Memory usage on this node: 4.5/12.2 GiB
+Using FIFO scheduling algorithm.
+Resources requested: 0/8 CPUs, 0/0 GPUs, 0.0/7.13 GiB heap, 0.0/2.44 GiB objects
+Result logdir: /app/results/PPO
+Number of trials: 1/1 (1 TERMINATED)
++----------------------------+------------+-------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+| Trial name                 | status     | loc   |   iter |   total time (s) |     ts |   reward |   episode_reward_max |   episode_reward_min |   episode_len_mean |
+|----------------------------+------------+-------+--------+------------------+--------+----------+----------------------+----------------------+--------------------|
+| PPO_TradingEnv_5c5ee_00000 | TERMINATED |       |     27 |          355.724 | 113400 |  585.333 |              598.105 |              316.306 |               1000 |
++----------------------------+------------+-------+--------+------------------+--------+----------+----------------------+----------------------+--------------------+
+
+
+2021-02-07 14:10:12,532 INFO tune.py:448 -- Total run time: 383.53 seconds (380.82 seconds for the tuning loop).
+2021-02-07 14:10:12,593 INFO trainer.py:618 -- Current log_level is WARN. For more information, set 'log_level': 'INFO' / 'DEBUG' or use the -v and -vv flags.
+(pid=279) WARNING:tensorflow:From /home/ray/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+(pid=279) Instructions for updating:
+(pid=279) non-resource variables are not supported in the long term
+(pid=279) /home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+(pid=279)   return torch._C._cuda_getDeviceCount() > 0
+/home/ray/anaconda3/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+  return torch._C._cuda_getDeviceCount() > 0
+2021-02-07 14:10:18,986 WARNING util.py:43 -- Install gputil for GPU system monitoring.
+2021-02-07 14:10:19,014 INFO trainable.py:329 -- Restored on 172.17.0.3 from checkpoint: /app/results/PPO/PPO_TradingEnv_5c5ee_00000_0_2021-02-07_14-03-51/checkpoint_27/checkpoint-27
+2021-02-07 14:10:19,014 INFO trainable.py:336 -- Current state after restoring: {'_iteration': 27, '_timesteps_total': None, '_time_total': 355.72415471076965, '_episodes_total': 126}
+(pid=279) /home/ray/anaconda3/lib/python3.7/site-packages/ray/rllib/utils/torch_ops.py:65: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+(pid=279)   tensor = torch.from_numpy(np.asarray(item))
+(base) ray@20e5c5069c73:/app$  
