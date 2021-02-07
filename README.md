@@ -18,3 +18,5 @@ $ docker run -it -v <absolute-project-path>:/app --entrypoint /bin/bash ssc
 $ python scripts/main.py
 $ exit
 ```
+## Borghese-Gladiator
+Followed tutorial here: [https://levelup.gitconnected.com/using-tensortrade-for-making-a-simple-trading-algorithm-6fad4d9bc79c](https://levelup.gitconnected.com/using-tensortrade-for-making-a-simple-trading-algorithm-6fad4d9bc79c)
